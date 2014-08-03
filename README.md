@@ -34,3 +34,4 @@ are available at https://github.com/ceefour/hadith-islamware
 		COPY (SELECT * FROM sanad.authenticityproperty WHERE id LIKE 'hadith%') TO '/tmp/authenticityproperty-hadith.tsv';
 
 		cp -v /tmp/hadith*.tsv /tmp/*-hadith.tsv ~/git/sanad-hadith/
+		xz -v literal-hadith.tsv   # GitHub's file size limit is 100 MB
