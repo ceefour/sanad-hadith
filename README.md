@@ -24,14 +24,20 @@ are available at https://github.com/ceefour/hadith-islamware
 2. Use `org.soluvas.sanad.cli.qurandatabase.ImportHadithDatabase` from https://github.com/soluvas/sanad project.
 3. Dump from PostgreSQL to TSV files:
 
-		psql -hlocalhost -Upostgres sanad_sanad_dev
+```bash
+psql -hlocalhost -Upostgres sanad_sanad_dev
+```
 
-		COPY (SELECT * FROM sanad.hadithcollection) TO '/tmp/hadithcollection.tsv';
-		COPY (SELECT * FROM sanad.hadith) TO '/tmp/hadith.tsv';
-		COPY (SELECT * FROM sanad.literal WHERE id LIKE 'hadith%') TO '/tmp/literal-hadith.tsv';
-		COPY (SELECT * FROM sanad.transliteration WHERE id LIKE 'hadith%') TO '/tmp/transliteration-hadith.tsv';
-		COPY (SELECT * FROM sanad.spellingproperty WHERE id LIKE 'hadith%') TO '/tmp/spellingproperty-hadith.tsv';
-		COPY (SELECT * FROM sanad.authenticityproperty WHERE id LIKE 'hadith%') TO '/tmp/authenticityproperty-hadith.tsv';
+```sql
+COPY (SELECT * FROM sanad.hadithcollection) TO '/tmp/hadithcollection.tsv';
+COPY (SELECT * FROM sanad.hadith) TO '/tmp/hadith.tsv';
+COPY (SELECT * FROM sanad.literal WHERE id LIKE 'hadith%') TO '/tmp/literal-hadith.tsv';
+COPY (SELECT * FROM sanad.transliteration WHERE id LIKE 'hadith%') TO '/tmp/transliteration-hadith.tsv';
+COPY (SELECT * FROM sanad.spellingproperty WHERE id LIKE 'hadith%') TO '/tmp/spellingproperty-hadith.tsv';
+COPY (SELECT * FROM sanad.authenticityproperty WHERE id LIKE 'hadith%') TO '/tmp/authenticityproperty-hadith.tsv';
+```
 
-		cp -v /tmp/hadith*.tsv /tmp/*-hadith.tsv ~/git/sanad-hadith/
-		xz -v literal-hadith.tsv   # GitHub's file size limit is 100 MB
+```bash
+cp -v /tmp/hadith*.tsv /tmp/*-hadith.tsv ~/git/sanad-hadith/
+xz -2e -v literal-hadith.tsv   # GitHub's file size limit is 100 MB
+```
