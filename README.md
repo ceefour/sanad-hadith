@@ -5,6 +5,7 @@ Hadith SQL database dump for Sanad, collected from various sources including Isl
 Compiled by [Hendy Irawan](http://www.hendyirawan.com/).
 
 Sources:
+
 1. [Islam Ware](https://www.islamware.com/app/downloads)
 
 Copyright (C) 2006-2014 Islam Ware
@@ -16,6 +17,7 @@ are available at https://github.com/ceefour/hadith-islamware
 ## Usage
 
 1. Create the necessary tables using https://github.com/soluvas/sanad SQL schema migration tools.
+    For PostgreSQL you can quickly use https://github.com/soluvas/sanad/blob/master/export/sanad.schema.sql
 2. Import data using `psql` and `COPY` command.
 
 ## How to Generate These Files
