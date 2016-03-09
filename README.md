@@ -17,17 +17,18 @@ are available at https://github.com/ceefour/hadith-islamware
 ## Usage
 
 1. Install [PostgreSQL 9.5 or later](http://www.postgresql.org/).
-2. Create the necessary tables using https://github.com/soluvas/sanad SQL schema migration tools.
+2. Extract `literal-hadith.tsv.xz`. You can use [7-Zip](http://www.7-zip.org/) or [XZ Utils](http://tukaani.org/xz/).
+3. Create the necessary tables using https://github.com/soluvas/sanad SQL schema migration tools.
     For PostgreSQL you can quickly use https://github.com/soluvas/sanad/blob/master/export/sanad.schema.sql
 
-3. Import data using `psql` and `COPY` (PostgreSQL server's) or `\copy` (locally) command:
+4. Import data using `psql` and `COPY` (PostgreSQL server's) or `\copy` (locally) command:
 
-		\copy sanad.hadithcollection from 'hadithcollection.tsv' (format csv, delimiter E'\t', header true, escape E'\\', encoding 'UTF-8')
-		\copy sanad.hadith from 'hadith.tsv' (format csv, delimiter E'\t', header true, escape E'\\', encoding 'UTF-8')
-		\copy sanad.literal from 'literal-hadith.tsv' (format csv, delimiter E'\t', header true, escape E'\\', encoding 'UTF-8')
-		\copy sanad.transliteration from 'transliteration-hadith.tsv' (format csv, delimiter E'\t', header true, escape E'\\', encoding 'UTF-8')
-		\copy sanad.spellingproperty from 'spellingproperty-hadith.tsv' (format csv, delimiter E'\t', header true, escape E'\\', encoding 'UTF-8')
-		\copy sanad.authenticityproperty from 'authenticityproperty-hadith.tsv' (format csv, delimiter E'\t', header true, escape E'\\', encoding 'UTF-8')
+        \copy sanad.hadithcollection from 'hadithcollection.tsv' (format csv, delimiter E'\t', header true, escape E'\\', encoding 'UTF-8')
+        \copy sanad.hadith from 'hadith.tsv' (format csv, delimiter E'\t', header true, escape E'\\', encoding 'UTF-8')
+        \copy sanad.literal from 'literal-hadith.tsv' (format csv, delimiter E'\t', header true, escape E'\\', encoding 'UTF-8')
+        \copy sanad.transliteration from 'transliteration-hadith.tsv' (format csv, delimiter E'\t', header true, escape E'\\', encoding 'UTF-8')
+        \copy sanad.spellingproperty from 'spellingproperty-hadith.tsv' (format csv, delimiter E'\t', header true, escape E'\\', encoding 'UTF-8')
+        \copy sanad.authenticityproperty from 'authenticityproperty-hadith.tsv' (format csv, delimiter E'\t', header true, escape E'\\', encoding 'UTF-8')
 
 ## (Hendy's Internal Note) How to Generate DB Files from IslamWare dataset
 
