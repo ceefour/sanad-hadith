@@ -26,7 +26,6 @@ are available at https://github.com/ceefour/hadith-islamware
         \copy sanad.hadithcollection from 'hadithcollection.tsv' (format csv, delimiter E'\t', header false, escape E'\\', encoding 'UTF-8')
         \copy sanad.hadith from 'hadith.tsv' (format csv, delimiter E'\t', header false, escape E'\\', encoding 'UTF-8')
         \copy sanad.literal from 'literal-hadith.tsv' (format csv, delimiter E'\t', header false, escape E'\\', encoding 'UTF-8')
-        \copy sanad.transliteration from 'transliteration-hadith.tsv' (format csv, delimiter E'\t', header false, escape E'\\', encoding 'UTF-8')
         \copy sanad.spellingproperty from 'spellingproperty-hadith.tsv' (format csv, delimiter E'\t', header false, escape E'\\', encoding 'UTF-8')
         \copy sanad.authenticityproperty from 'authenticityproperty-hadith.tsv' (format csv, delimiter E'\t', header false, escape E'\\', encoding 'UTF-8')
 
@@ -44,7 +43,6 @@ psql -hlocalhost -Upostgres sanad_sanad_dev
 COPY (SELECT * FROM sanad.hadithcollection) TO '/tmp/hadithcollection.tsv';
 COPY (SELECT * FROM sanad.hadith) TO '/tmp/hadith.tsv';
 COPY (SELECT * FROM sanad.literal WHERE id LIKE 'hadith%') TO '/tmp/literal-hadith.tsv';
-COPY (SELECT * FROM sanad.transliteration WHERE id LIKE 'hadith%') TO '/tmp/transliteration-hadith.tsv';
 COPY (SELECT * FROM sanad.spellingproperty WHERE id LIKE 'hadith%') TO '/tmp/spellingproperty-hadith.tsv';
 COPY (SELECT * FROM sanad.authenticityproperty WHERE id LIKE 'hadith%') TO '/tmp/authenticityproperty-hadith.tsv';
 ```
