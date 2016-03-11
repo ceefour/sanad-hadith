@@ -29,7 +29,9 @@ are available at https://github.com/ceefour/hadith-islamware
         \copy sanad.spellingproperty from 'spellingproperty-hadith.tsv' (format csv, delimiter E'\t', header false, escape E'\\', encoding 'UTF-8')
         \copy sanad.authenticityproperty from 'authenticityproperty-hadith.tsv' (format csv, delimiter E'\t', header false, escape E'\\', encoding 'UTF-8')
 
-## (Hendy's Internal Note) How to Generate DB Files from IslamWare dataset
+## Hendy's Internal Notes
+
+### How to Generate DB Files from IslamWare dataset
 
 1. Prepare Hadith files from https://github.com/ceefour/hadith-islamware
 2. Use `org.soluvas.sanad.cli.qurandatabase.ImportHadithDatabase` from https://github.com/soluvas/sanad project.
@@ -51,3 +53,7 @@ COPY (SELECT * FROM sanad.authenticityproperty WHERE id LIKE 'hadith%') TO '/tmp
 cp -v /tmp/hadith*.tsv /tmp/*-hadith.tsv ~/git/sanad-hadith/
 xz -2e -v literal-hadith.tsv   # GitHub's file size limit is 100 MB
 ```
+
+### Other Hadith Datasets
+
+1. [kutubuhadits-sql](https://bitbucket.org/soluvas/kutubuhadits-sql) containing 1 Quran + 9 Hadits Compilation with Indonesian translation.
